@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="iso-8859-1"?> 
+<global>
+<questions>
+<question value="Afghanistan" response="Kaboul"></question>
+<question value="Afrique du Sud" response="Bloemfontein"></question>
+<question value="Albanie" response="Tirana"></question>
+<question value="Algérie" response="Alger"></question>
+<question value="Allemagne" response="Berlin"></question>
+<question value="Andorre" response="Andorre-la-Vieille"></question>
+<question value="Angola" response="Luanda"></question>
+<question value="Antigua-et-Barbuda" response="Saint John's"></question>
+<question value="Arabie saoudite" response="Riyad"></question>
+<question value="Argentine" response="Buenos Aires"></question>
+<question value="Arménie" response="Erevan"></question>
+<question value="Australie" response="Canberra"></question>
+<question value="Autriche" response="Vienne"></question>
+<question value="Azerbaïdjan" response="Bakou"></question>
+<question value="Bahamas" response="Nassau"></question>
+<question value="Bahreïn" response="Manama"></question>
+<question value="Bangladesh" response="Dhaka"></question>
+<question value="Barbade" response="Bridgetown"></question>
+<question value="Belgique" response="Bruxelles"></question>
+<question value="Belize" response="Belmopan"></question>
+<question value="Bénin" response="Porto-Novo"></question>
+<question value="Bhoutan" response="Thimphou"></question>
+<question value="Biélorussie" response="Minsk"></question>
+<question value="Birmanie" response="Pyinmana"></question>
+<question value="Bolivie" response="La Paz"></question>
+<question value="Bosnie-Herzégovine" response="Sarajevo"></question>
+<question value="Botswana" response="Gaborone"></question>
+<question value="Brésil" response="Brasilia"></question>
+<question value="Brunei" response="Bandar Seri Begawan"></question>
+<question value="Bulgarie" response="Sofia"></question>
+<question value="Burkina Faso" response="Ouagadougou"></question>
+<question value="Burundi" response="Bujumbura"></question>
+<question value="Cambodge" response="Phnom Penh"></question>
+<question value="Cameroun" response="Yaoundé"></question>
+<question value="Canada" response="Ottawa"></question>
+<question value="Cap-Vert" response="Praia"></question>
+<question value="Centrafrique" response="Bangui"></question>
+<question value="Chili" response="Santiago"></question>
+<question value="Chine" response="Pékin"></question>
+<question value="Chypre" response="Nicosie"></question>
+<question value="Colombie" response="Bogota"></question>
+<question value="Comores" response="Moroni"></question>
+<question value="Congo" response="Kinshasa"></question>
+<question value="Corée du Nord" response="Pyongyang"></question>
+<question value="Corée du Sud" response="Séoul"></question>
+<question value="Costa Rica" response="San José"></question>
+<question value="Côte d'ivoire" response="Abidjan"></question>
+<question value="Croatie" response="Zagreb"></question>
+<question value="Cuba" response="La Havane"></question>
+<question value="Danemark" response="Copenhague"></question>
+<question value="Djibouti" response="Djibouti"></question>
+<question value="République dominicaine" response="Saint-Domingue"></question>
+<question value="Dominique" response="Roseau"></question>
+<question value="Égypte" response="Le Caire"></question>
+<question value="Émirats arabes unis" response="Abou Dabi"></question>
+<question value="Équateur" response="Quito"></question>
+<question value="Érythrée" response="Asmara"></question>
+<question value="Espagne" response="Madrid"></question>
+<question value="Estonie" response="Tallinn"></question>
+<question value="États-Unis" response="Washington"></question>
+<question value="Éthiopie" response="Addis-Abeba"></question>
+<question value="Fidji" response="Suva"></question>
+<question value="Finlande" response="Helsinki"></question>
+<question value="France" response="Paris"></question>
+<question value="Gabon" response="Libreville"></question>
+<question value="Gambie" response="Banjul"></question>
+<question value="Géorgie" response="Tbilissi"></question>
+<question value="Ghana" response="Accra"></question>
+<question value="Grèce" response="Athènes"></question>
+<question value="Grenade" response="Saint-Georges"></question>
+<question value="Guatemala" response="Guatemala"></question>
+<question value="Guinée" response="Conakry"></question>
+<question value="Guinée-Bissau" response="Bissau"></question>
+<question value="Guinée équatoriale" response="Malabo"></question>
+<question value="Guyana" response="Georgetown"></question>
+<question value="Haïti" response="Port-au-Prince"></question>
+<question value="Honduras" response="Tegucigalpa"></question>
+<question value="Hongrie" response="Budapest"></question>
+<question value="Inde" response="New Delhi"></question>
+<question value="Indonésie" response="Jakarta"></question>
+<question value="Irak" response="Bagdad"></question>
+<question value="Iran" response="Téhéran"></question>
+<question value="Irlande" response="Dublin"></question>
+<question value="Islande" response="Reykjavik"></question>
+<question value="Israél" response="Tel Aviv-Jaffa"></question>
+<question value="Italie" response="Rome"></question>
+<question value="Jamaïque" response="Kingston"></question>
+<question value="Japon" response="Tokyo"></question>
+<question value="Jordanie" response="Amman"></question>
+<question value="Kazakhstan" response="Astana"></question>
+<question value="Kenya" response="Nairobi"></question>
+<question value="Kirghizistan" response="Bichkek"></question>
+<question value="Kiribati" response="Tarawa"></question>
+<question value="Koweït" response="Koweït"></question>
+<question value="Laos" response="Vientiane"></question>
+<question value="Lesotho" response="Maseru"></question>
+<question value="Lettonie" response="Riga"></question>
+<question value="Liban" response="Beyrouth"></question>
+<question value="Liberia" response="Monrovia"></question>
+<question value="Libye" response="Tripoli"></question>
+<question value="Liechtenstein" response="Vaduz"></question>
+<question value="Lituanie" response="Vilnius"></question>
+<question value="Luxembourg" response="Luxembourg"></question>
+<question value="Macédoine" response="Skopje"></question>
+<question value="Madagascar" response="Antananarivo"></question>
+<question value="Malaisie" response="Kuala Lumpur"></question>
+<question value="Malawi" response="Lilongwe"></question>
+<question value="Maldives" response="Malé"></question>
+<question value="Mali" response="Bamako"></question>
+<question value="Malte" response="La Valette"></question>
+<question value="Maroc" response="Rabat"></question>
+<question value="Marshall" response="Delap-Uliga-Darrit"></question>
+<question value="Maurice" response="Port-Louis"></question>
+<question value="Mauritanie" response="Nouakchott"></question>
+<question value="Mexique" response="Mexico"></question>
+<question value="Micronésie" response="Palikir"></question>
+<question value="Moldavie" response="Chisinau"></question>
+<question value="Monaco" response="Monaco"></question>
+<question value="Mongolie" response="Oulan Bator"></question>
+<question value="Monténégro" response="Podgorica"></question>
+<question value="Mozambique" response="Maputo"></question>
+<question value="Namibie" response="Windhoek"></question>
+<question value="Nauru" response="Yaren"></question>
+<question value="Népal" response="Katmandou"></question>
+<question value="Nicaragua" response="Managua"></question>
+<question value="Niger" response="Niamey"></question>
+<question value="Nigeria" response="Abuja"></question>
+<question value="Norvège" response="Oslo"></question>
+<question value="Nouvelle-Zélande" response="Wellington"></question>
+<question value="Oman" response="Mascate"></question>
+<question value="Ouganda" response="Kampala"></question>
+<question value="Ouzbékistan" response="Tachkent"></question>
+<question value="Pakistan" response="Islamabad"></question>
+<question value="Palaos" response="Koror"></question>
+<question value="Panama" response="Panama"></question>
+<question value="Papouasie-Nouvelle-Guinée" response="Port Moresby"></question>
+<question value="Paraguay" response="Asunción"></question>
+<question value="Pays-Bas" response="Amsterdam"></question>
+<question value="Pérou" response="Lima"></question>
+<question value="Philippines" response="Manille"></question>
+<question value="Pologne" response="Varsovie"></question>
+<question value="Portugal" response="Lisbonne"></question>
+<question value="Qatar" response="Doha"></question>
+<question value="Roumanie" response="Bucarest"></question>
+<question value="Royaume-Uni" response="Londres"></question>
+<question value="Russie" response="Moscou"></question>
+<question value="Rwanda" response="Kigali"></question>
+<question value="Saint-Christophe-et-Niévès" response="Basseterre"></question>
+<question value="Sainte-Lucie" response="Castries"></question>
+<question value="Saint-Marin" response="Saint-Marin"></question>
+<question value="Saint-Vincent-et-les-Grenadines" response="Kingstown"></question>
+<question value="Salomon" response="Honiara"></question>
+<question value="Salvador" response="San Salvador"></question>
+<question value="Samoa" response="Apia"></question>
+<question value="Sao Tomé-et-Principe" response="Sao Tomé"></question>
+<question value="Sénégal" response="Dakar"></question>
+<question value="Serbie" response="Belgrade"></question>
+<question value="Seychelles" response="Victoria"></question>
+<question value="Sierra Leone" response="Freetown"></question>
+<question value="Singapour" response="Singapour"></question>
+<question value="Slovaquie" response="Bratislava"></question>
+<question value="Slovénie" response="Ljubljana"></question>
+<question value="Somalie" response="Mogadiscio"></question>
+<question value="Soudan" response="Khartoum"></question>
+<question value="Soudan du Sud" response="Djouba"></question>
+<question value="Sri Lanka" response="Colombo"></question>
+<question value="Suède" response="Stockholm"></question>
+<question value="Suisse" response="Berne"></question>
+<question value="Surivalue" response="Paramaribo"></question>
+<question value="Swaziland" response="Mbabane"></question>
+<question value="Syrie" response="Damas"></question>
+<question value="Tadjikistan" response="Douchanbé"></question>
+<question value="Tanzanie" response="Dar es Salam"></question>
+<question value="Tchad" response="N'Djamena"></question>
+<question value="République tchèque" response="Prague"></question>
+<question value="Thaïlande" response="Bangkok"></question>
+<question value="Timor oriental" response="Dili"></question>
+<question value="Togo" response="Lomé"></question>
+<question value="Tonga" response="Nuku'alofa"></question>
+<question value="Trinité-et-Tobago" response="Port-d'Espagne"></question>
+<question value="Tunisie" response="Tunis"></question>
+<question value="Turkménistan" response="Achgabat"></question>
+<question value="Turquie" response="Ankara"></question>
+<question value="Tuvalu" response="Funafuti"></question>
+<question value="Ukraine" response="Kiev"></question>
+<question value="Uruguay" response="Montevideo"></question>
+<question value="Vanuatu" response="Port-Vila"></question>
+<question value="Vatican" response="Vatican"></question>
+<question value="Venezuela" response="Caracas"></question>
+<question value="Viêt Nam" response="Hanoï"></question>
+<question value="Yémen" response="Sanaa"></question>
+<question value="Zambie" response="Lusaka"></question>
+<question value="Zimbabwe" response="Harare"></question>
+</questions>
+</global>
+
+
+
