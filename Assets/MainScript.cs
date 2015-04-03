@@ -9,6 +9,7 @@ public class MainScript : MonoBehaviour {
 
 	public Text m_Text;
 	public Text m_Score;
+	public Text m_idCurrentQuestion;
 	public UnityEngine.Sprite buttonGood, buttonBad, buttonNeutral;
 
 	List<Dictionary<string,string>> m_lQuestions;
@@ -17,6 +18,7 @@ public class MainScript : MonoBehaviour {
 	List<int> m_nBannedIds;
 	int m_nCurrentId;
 	int m_nScore; 
+	int m_nQuestionsCounter;
 
 	bool m_bAnimationEffectAnswer;
 	float m_fTimer, m_fRefTime, m_fWaintingTime;
@@ -56,6 +58,9 @@ public class MainScript : MonoBehaviour {
 		m_nCurrentId = 0;
 		m_Text.text = m_lQuestions[m_nIds[m_nCurrentId]]["value"];
 
+		m_nQuestionsCounter = 1;
+		m_idCurrentQuestion.text = 1 + " / " + m_lQuestions.Count;
+
 		NextQuestion ();
 	}
 
@@ -68,10 +73,13 @@ public class MainScript : MonoBehaviour {
 			if ( m_bCorrectAnswer ) {
 				++m_nScore;
 				m_Score.text = "Score : " + m_nScore;
+				++m_nQuestionsCounter;
 			} else {
 				m_nScore = 0;
 				m_Score.text = "Score : " + m_nScore;
+				m_nQuestionsCounter = 1;
 			}
+			m_idCurrentQuestion.text = m_nQuestionsCounter + " / " + m_lQuestions.Count;
 			
 			++m_nCurrentId;
 			if (m_nCurrentId == m_nIds.Count)
@@ -93,19 +101,21 @@ public class MainScript : MonoBehaviour {
 	public void OnClickButton (Button p_clickedBtn) {
 		UnityEngine.UI.Image buttonImage;
 
-		//if good answer
-		if (p_clickedBtn.GetComponentInChildren<Text> ().text.CompareTo (m_lQuestions [m_nIds [m_nCurrentId]] ["response"]) == 0) { 
-			buttonImage = p_clickedBtn.GetComponent<UnityEngine.UI.Image> ();
-			buttonImage.overrideSprite = buttonGood;
-			m_bCorrectAnswer = true;
-		} else {
-			buttonImage = p_clickedBtn.GetComponent<UnityEngine.UI.Image> ();
-			buttonImage.overrideSprite = buttonBad;
-			m_bCorrectAnswer = false;
-		}
+		if (!m_bAnimationEffectAnswer) {
+			//if good answer
+			if (p_clickedBtn.GetComponentInChildren<Text> ().text.CompareTo (m_lQuestions [m_nIds [m_nCurrentId]] ["response"]) == 0) { 
+				buttonImage = p_clickedBtn.GetComponent<UnityEngine.UI.Image> ();
+				buttonImage.overrideSprite = buttonGood;
+				m_bCorrectAnswer = true;
+			} else {
+				buttonImage = p_clickedBtn.GetComponent<UnityEngine.UI.Image> ();
+				buttonImage.overrideSprite = buttonBad;
+				m_bCorrectAnswer = false;
+			}
 
-		m_fRefTime = Time.time;
-		m_bAnimationEffectAnswer = true;
+			m_fRefTime = Time.time;
+			m_bAnimationEffectAnswer = true;
+		}
 	}
 
 	public void LoadGameFromXml()
