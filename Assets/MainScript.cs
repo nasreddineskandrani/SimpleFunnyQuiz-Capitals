@@ -16,7 +16,6 @@ public class MainScript : MonoBehaviour {
 	Button[] m_Btns;
 
 	public Text m_Text;
-	public Text m_Result;
 	public Text m_Score;
 
 	List<int> m_nIds;
@@ -61,11 +60,9 @@ public class MainScript : MonoBehaviour {
 		if (p_clickedBtn.GetComponentInChildren<Text> ().text.CompareTo(m_lQuestions [m_nIds [m_nCurrentId]] ["response"]) == 0) { // compare good answer
 			++m_nScore;
 			m_Score.text = "Score : " + m_nScore;
-			m_Result.text = "good";
 		} else {
 			m_nScore = 0;
 			m_Score.text = "Score : " + m_nScore;
-			m_Result.text = "bad";
 		}
 
 		++m_nCurrentId;
