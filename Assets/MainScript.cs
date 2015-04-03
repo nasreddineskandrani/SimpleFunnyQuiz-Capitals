@@ -4,11 +4,12 @@ using UnityEngine.UI;
 using System.Xml;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 public class MainScript : MonoBehaviour {
 
 	public Text m_Text;
-	public Text m_Score;
+	public Text m_textBestScore;
 	public Text m_idCurrentQuestion;
 	public UnityEngine.Sprite buttonGood, buttonBad, buttonNeutral;
 
@@ -23,6 +24,8 @@ public class MainScript : MonoBehaviour {
 	bool m_bAnimationEffectAnswer;
 	float m_fTimer, m_fRefTime, m_fWaintingTime;
 	bool m_bCorrectAnswer;
+
+	int m_nSavedBestScore;
 
 	void Awake()
 	{
@@ -61,6 +64,11 @@ public class MainScript : MonoBehaviour {
 		m_nQuestionsCounter = 1;
 		m_idCurrentQuestion.text = 1 + " / " + m_lQuestions.Count;
 
+		m_nSavedBestScore = 0;
+		LoadBestScore ();
+
+		m_textBestScore.text = "Best Score : " + m_nSavedBestScore;
+
 		NextQuestion ();
 	}
 
@@ -72,11 +80,14 @@ public class MainScript : MonoBehaviour {
 
 			if ( m_bCorrectAnswer ) {
 				++m_nScore;
-				m_Score.text = "Score : " + m_nScore;
 				++m_nQuestionsCounter;
 			} else {
+				if (m_nScore > m_nSavedBestScore) { // if new best score
+					m_nSavedBestScore = m_nScore;
+					SaveBestScore();
+					m_textBestScore.text = "Best Score : " + m_nSavedBestScore;
+				}
 				m_nScore = 0;
-				m_Score.text = "Score : " + m_nScore;
 				m_nQuestionsCounter = 1;
 			}
 			m_idCurrentQuestion.text = m_nQuestionsCounter + " / " + m_lQuestions.Count;
@@ -188,6 +199,22 @@ public class MainScript : MonoBehaviour {
 			int value = list[k];
 			list[k] = list[n];
 			list[n] = value;
+		}
+	}
+
+	public void SaveBestScore() {
+		BinaryFormatter bf = new BinaryFormatter();
+		FileStream file = File.Create (Application.persistentDataPath + "/savedGames.gd");
+		bf.Serialize(file, m_nSavedBestScore);
+		file.Close();
+	}
+
+	public void LoadBestScore() {
+		if(File.Exists(Application.persistentDataPath + "/savedGames.gd")) {
+			BinaryFormatter bf = new BinaryFormatter();
+			FileStream file = File.Open(Application.persistentDataPath + "/savedGames.gd", FileMode.Open);
+			m_nSavedBestScore = (int)bf.Deserialize(file);
+			file.Close();
 		}
 	}
 }
