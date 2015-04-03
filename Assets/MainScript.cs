@@ -7,23 +7,20 @@ using System.IO;
 
 public class MainScript : MonoBehaviour {
 
-	public TextAsset GameAsset;
-	
-	//static string country = "";
-	//static string answer = "";
-	
-	List<Dictionary<string,string>> m_lQuestions;
-	Button[] m_Btns;
-
 	public Text m_Text;
 	public Text m_Score;
+	public UnityEngine.Sprite buttonGood, buttonBad, buttonNeutral;
 
+	List<Dictionary<string,string>> m_lQuestions;
+	Button[] m_Btns;
 	List<int> m_nIds;
 	List<int> m_nBannedIds;
-
 	int m_nCurrentId;
-
 	int m_nScore; 
+
+	bool m_bAnimationEffectAnswer;
+	float m_fTimer, m_fRefTime, m_fWaintingTime;
+	bool m_bCorrectAnswer;
 
 	void Awake()
 	{
@@ -31,6 +28,12 @@ public class MainScript : MonoBehaviour {
 	}
 
 	void Start () {
+
+		m_bCorrectAnswer = false;
+
+		m_fWaintingTime = 0.5f;
+
+		m_bAnimationEffectAnswer = false;
 
 		m_nScore = 0;
 
@@ -55,24 +58,54 @@ public class MainScript : MonoBehaviour {
 
 		NextQuestion ();
 	}
+
+	void Update() {
+		m_fTimer += Time.deltaTime;
+		if (m_fTimer > (m_fRefTime + m_fWaintingTime) && m_bAnimationEffectAnswer)
+		{
+			m_bAnimationEffectAnswer = false;
+
+			if ( m_bCorrectAnswer ) {
+				++m_nScore;
+				m_Score.text = "Score : " + m_nScore;
+			} else {
+				m_nScore = 0;
+				m_Score.text = "Score : " + m_nScore;
+			}
+			
+			++m_nCurrentId;
+			if (m_nCurrentId == m_nIds.Count)
+			{
+				Shuffle(m_nIds);
+				m_nCurrentId = 0;
+			}
+
+			for (int i = 0; i < 4; ++i)
+			{
+				UnityEngine.UI.Image buttonImage;
+				buttonImage = m_Btns[i].GetComponent<UnityEngine.UI.Image>();
+				buttonImage.overrideSprite = buttonNeutral;
+			}
+			NextQuestion();
+		}
+	}
 	
 	public void OnClickButton (Button p_clickedBtn) {
-		if (p_clickedBtn.GetComponentInChildren<Text> ().text.CompareTo(m_lQuestions [m_nIds [m_nCurrentId]] ["response"]) == 0) { // compare good answer
-			++m_nScore;
-			m_Score.text = "Score : " + m_nScore;
+		UnityEngine.UI.Image buttonImage;
+
+		//if good answer
+		if (p_clickedBtn.GetComponentInChildren<Text> ().text.CompareTo (m_lQuestions [m_nIds [m_nCurrentId]] ["response"]) == 0) { 
+			buttonImage = p_clickedBtn.GetComponent<UnityEngine.UI.Image> ();
+			buttonImage.overrideSprite = buttonGood;
+			m_bCorrectAnswer = true;
 		} else {
-			m_nScore = 0;
-			m_Score.text = "Score : " + m_nScore;
+			buttonImage = p_clickedBtn.GetComponent<UnityEngine.UI.Image> ();
+			buttonImage.overrideSprite = buttonBad;
+			m_bCorrectAnswer = false;
 		}
 
-		++m_nCurrentId;
-		if (m_nCurrentId == m_nIds.Count)
-		{
-			Shuffle(m_nIds);
-			m_nCurrentId = 0;
-		}
-
-		NextQuestion ();
+		m_fRefTime = Time.time;
+		m_bAnimationEffectAnswer = true;
 	}
 
 	public void LoadGameFromXml()
