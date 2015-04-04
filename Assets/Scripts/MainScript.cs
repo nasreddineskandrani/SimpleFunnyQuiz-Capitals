@@ -152,8 +152,10 @@ public class MainScript : MonoBehaviour {
 		System.Random rd = new System.Random();
 		int idBtnGoodAswer = rd.Next(0, 4);
 		string goodAnswer = "";
-		int nIdAnswer = 0;
+		string badAnswer = "";
+		int nIdBadAnswer = 0;
 		System.Random rd1 = new System.Random();
+		m_nBannedIds.Add(m_nCurrentId);
 		for (int i = 0; i < 4; ++i)
 		{
 			if ( i == idBtnGoodAswer ) 
@@ -163,16 +165,16 @@ public class MainScript : MonoBehaviour {
 			}
 			else
 			{
-				nIdAnswer = rd1.Next(0, m_nIds.Count);
+				nIdBadAnswer = rd1.Next(0, m_nIds.Count);
 			
-				while (nIdAnswer == m_nCurrentId && IsBannedId(nIdAnswer)) 
+				while (IsBannedId(nIdBadAnswer)) 
 				{
-					nIdAnswer = rd1.Next(0, m_nIds.Count);
-					m_nBannedIds.Add(nIdAnswer);
+					nIdBadAnswer = rd1.Next(0, m_nIds.Count);
+					m_nBannedIds.Add(nIdBadAnswer);
 				}
 
-				goodAnswer = m_lQuestions [m_nIds [nIdAnswer]] ["response"];
-				m_Btns[i].GetComponentInChildren<Text>().text = goodAnswer;
+				badAnswer = m_lQuestions [m_nIds [nIdBadAnswer]] ["response"];
+				m_Btns[i].GetComponentInChildren<Text>().text = badAnswer;
 			}
 		}
 

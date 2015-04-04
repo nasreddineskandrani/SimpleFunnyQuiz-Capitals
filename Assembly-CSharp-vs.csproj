@@ -46,7 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\MainScript.cs" />
+     <Compile Include="Assets\Scripts\MainScript.cs" />
      <None Include="Assets\Data\data_en.xml" />
      <None Include="Assets\Data\data_fr.xml" />
  <Reference Include="UnityEngine.UI">
