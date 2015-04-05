@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<global>
+<questions>
+<question value="Afghanistan" response="Kabul"></question>
+<question value="South Africa" response="Bloemfontein"></question>
+<question value="Albania" response="Tirana"></question>
+<question value="Algeria" response="Alger"></question>
+<question value="Germany" response="Berlin"></question>
+<question value="Andorra" response="Andorra la Vella"></question>
+<question value="Angola" response="Luanda"></question>
+</questions>
+</global>

@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\MainScript.cs" />
      <None Include="Assets\Data\data_en.xml" />
+     <None Include="Assets\Data\data_test.xml" />
      <None Include="Assets\Data\data_fr.xml" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
