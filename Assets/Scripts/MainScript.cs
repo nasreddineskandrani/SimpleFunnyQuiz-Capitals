@@ -4,7 +4,8 @@ using UnityEngine.UI;
 using System.Xml;
 using System.Collections.Generic;
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
+//using System.Runtime.Serialization.Formatters.Binary;
+using System.Xml.Serialization;
 
 public class MainScript : MonoBehaviour {
 
@@ -86,7 +87,6 @@ public class MainScript : MonoBehaviour {
 				if (m_nScore > m_nSavedBestScore) { // if new best score
 					m_nSavedBestScore = m_nScore;
 					SaveBestScore();
-					m_textBestScore.text = "Best Score : " + m_nSavedBestScore;
 				}
 
 				ResetGame();
@@ -129,24 +129,36 @@ public class MainScript : MonoBehaviour {
 			m_bAnimationEffectAnswer = true;
 		}
 	}
-
+	
 	public void LoadGameFromXml()
-	{	
-		XmlDocument xmlDoc = new XmlDocument ();
-		xmlDoc.Load("./Assets/Data/data_en.xml"); 
-		XmlNodeList questionsList = xmlDoc.GetElementsByTagName("question"); 
-
+	{
 		Dictionary<string,string> obj;
-		foreach (XmlNode question in questionsList) { 
-			obj = new Dictionary<string,string> (); 
-			obj.Add("value",question.Attributes.GetNamedItem("value").Value);
-			obj.Add("response",question.Attributes.GetNamedItem("response").Value);
-			m_lQuestions.Add(obj);
+
+		TextAsset xmlData = new TextAsset();
+		xmlData = (TextAsset)Resources.Load("data_en", typeof(TextAsset));
+		if(xmlData != null)
+		{
+			XmlTextReader textReader = new XmlTextReader(new StringReader(xmlData.text));
+			while (textReader.Read()) {
+				switch(textReader.NodeType) {
+					case XmlNodeType.Element: {
+						switch(textReader.Name) {
+							case "question": {              
+								obj = new Dictionary<string,string> (); 
+								obj.Add("value", textReader.GetAttribute("value"));
+								obj.Add("response", textReader.GetAttribute("response"));
+								m_lQuestions.Add(obj);
+							}
+							break;
+						}
+					}
+					break;
+				}
+			}
 		}
 	}
 
 	public void NextQuestion() {
-		Debug.Log ("NextQuestion");
 		m_Text.text = m_lQuestions[m_nIds[m_nCurrentId]]["value"];
 
 		//emplacement question
@@ -209,7 +221,9 @@ public class MainScript : MonoBehaviour {
 	{
 		m_nCurrentId = 0;
 		m_nQuestionsCounter = 1;
-		
+
+		m_nScore = 0;
+
 		m_nIds.Clear();
 		
 		for (int i = 0; i < m_lQuestions.Count; ++i) {
@@ -217,21 +231,17 @@ public class MainScript : MonoBehaviour {
 		}
 		
 		Shuffle(m_nIds);
-	}
 
-	public void SaveBestScore() {
-		BinaryFormatter bf = new BinaryFormatter();
-		FileStream file = File.Create (Application.persistentDataPath + "/savedGames.gd");
-		bf.Serialize(file, m_nSavedBestScore);
-		file.Close();
+		LoadBestScore ();
 	}
-
-	public void LoadBestScore() {
-		if(File.Exists(Application.persistentDataPath + "/savedGames.gd")) {
-			BinaryFormatter bf = new BinaryFormatter();
-			FileStream file = File.Open(Application.persistentDataPath + "/savedGames.gd", FileMode.Open);
-			m_nSavedBestScore = (int)bf.Deserialize(file);
-			file.Close();
-		}
+	
+	public void SaveBestScore()
+	{
+		PlayerPrefs.SetInt("BestScore", m_nSavedBestScore);
+	}
+	
+	public void LoadBestScore()
+	{
+		m_nSavedBestScore = PlayerPrefs.GetInt("BestScore");
 	}
 }
