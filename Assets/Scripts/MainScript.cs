@@ -87,6 +87,7 @@ public class MainScript : MonoBehaviour {
 				if (m_nScore > m_nSavedBestScore) { // if new best score
 					m_nSavedBestScore = m_nScore;
 					SaveBestScore();
+					m_textBestScore.text = "Best Score : " + m_nSavedBestScore;
 				}
 
 				ResetGame();
