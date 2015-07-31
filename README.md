@@ -1,4 +1,4 @@
-capitals of the world quiz
+SimpleFunnyQuiz - Capitals
 
 google play [released]
 
