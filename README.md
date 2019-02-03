@@ -4,7 +4,7 @@ https://unity3d.com/
 ------------------------------------
 SimpleFunnyQuiz - Capitals
 
-google play [released]
+google play [need update - removed from store for now]
 
 https://play.google.com/store/apps/details?id=com.ngeniussoft.quizcapitals&hl=fr
 
